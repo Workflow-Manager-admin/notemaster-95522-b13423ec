@@ -11,10 +11,9 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class NotesService {
-  private apiUrl = environment.apiUrl + '/notes';
+  private apiUrl = environment.apiUrl + '/api/notes';
 
   constructor(
-    /* eslint-disable-next-line no-unused-vars */
     private http: HttpClient
   ) {}
 

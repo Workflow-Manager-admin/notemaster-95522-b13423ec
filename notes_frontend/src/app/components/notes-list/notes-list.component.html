@@ -1,0 +1,45 @@
+<div class="notes-list-container">
+  <div class="notes-header">
+    <h2>My Notes</h2>
+    <button [routerLink]="['/notes/new']" class="new-note-btn">New Note</button>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading notes...
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error" class="notes-grid">
+    @for (note of notes; track note.id) {
+      <div class="note-card">
+        <div class="note-content">
+          <h3>{{ note.title }}</h3>
+          <p>{{ note.content | slice:0:100 }}{{ note.content.length > 100 ? '...' : '' }}</p>
+          <div class="note-metadata">
+            <span>Updated: {{ note.updated_at | date:'short' }}</span>
+          </div>
+        </div>
+        <div class="note-actions">
+          <button [routerLink]="['/notes', note.id]" class="edit-btn">Edit</button>
+          @if (deleteConfirmation === note.id) {
+            <div class="delete-confirmation">
+              <p>Are you sure?</p>
+              <button (click)="deleteNote(note.id)" class="confirm-btn">Yes</button>
+              <button (click)="cancelDelete()" class="cancel-btn">No</button>
+            </div>
+          } @else {
+            <button (click)="confirmDelete(note.id)" class="delete-btn">Delete</button>
+          }
+        </div>
+      </div>
+    }
+    @empty {
+      <div class="no-notes">
+        <p>No notes found. Create your first note!</p>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="search-container">
+  <div class="search-header">
+    <h2>Search Notes</h2>
+  </div>
+
+  <div class="search-form">
+    <div class="search-input-group">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="search()"
+        placeholder="Search notes..."
+        class="search-input"
+      >
+      <button (click)="search()" class="search-btn">Search</button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Searching...
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div class="search-results" *ngIf="!loading && searchResults.length > 0">
+    @for (note of searchResults; track note.id) {
+      <div class="note-card">
+        <div class="note-content">
+          <h3>{{ note.title }}</h3>
+          <p>{{ note.content | slice:0:100 }}{{ note.content.length > 100 ? '...' : '' }}</p>
+          <div class="note-metadata">
+            <span>Updated: {{ note.updated_at | date:'short' }}</span>
+          </div>
+        </div>
+        <div class="note-actions">
+          <button [routerLink]="['/notes', note.id]" class="view-btn">View</button>
+        </div>
+      </div>
+    }
+    @empty {
+      <div class="no-results" *ngIf="searchQuery">
+        <p>No notes found matching your search.</p>
+      </div>
+    }
+  </div>
+</div>
