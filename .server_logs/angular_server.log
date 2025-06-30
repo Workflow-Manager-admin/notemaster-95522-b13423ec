@@ -9,20 +9,20 @@ The "disableHostCheck" option will not be used because it is not supported by th
 Browser bundles     
 Initial chunk files  | Names            |  Raw size
 polyfills.js         | polyfills        |  90.20 kB | 
-main.js              | main             |  38.70 kB | 
-styles.css           | styles           |   1.02 kB | 
+main.js              | main             |  46.10 kB | 
+styles.css           | styles           |   3.55 kB | 
 
-                     | Initial total    | 129.91 kB
+                     | Initial total    | 139.85 kB
 
 
 Server bundles      
 Initial chunk files  | Names            |  Raw size
 polyfills.server.mjs | polyfills.server | 572.91 kB | 
-chunk-KFVGSGEB.mjs   | -                |  39.12 kB | 
+chunk-K3VWUENV.mjs   | -                |  46.52 kB | 
 server.mjs           | server           |   1.39 kB | 
 main.server.mjs      | main.server      | 800 bytes | 
 
-Application bundle generation complete. [3.389 seconds]
+Application bundle generation complete. [3.113 seconds]
 
 Watch mode enabled. Watching for file changes...
 NOTE: Raw file sizes do not reflect development server per-request transformations.
@@ -52,89 +52,147 @@ Error loading notes: ReferenceError: ErrorEvent is not defined
     at fulfilled (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-YHCV7DAQ.js:72:24)
 ❯ Changes detected. Rebuilding...
 ✔ Changes detected. Rebuilding...
-Initial chunk files | Names  | Raw size
-styles.css          | styles |  3.55 kB | 
-
-Application bundle generation complete. [0.035 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
 Browser bundles    
 Initial chunk files | Names       |  Raw size
-main.js             | main        |  39.78 kB | 
+main.js             | main        |  46.39 kB | 
 
 
 Server bundles     
 Initial chunk files | Names       |  Raw size
-chunk-DNKR2VFX.mjs  | -           |  40.20 kB | 
+chunk-A7OHEHPE.mjs  | -           |  46.81 kB | 
 server.mjs          | server      |   1.39 kB | 
 main.server.mjs     | main.server | 800 bytes | 
 
-Application bundle generation complete. [0.607 seconds]
+Application bundle generation complete. [0.656 seconds]
 
 Page reload sent to client(s).
+5:49:38 AM [vite] Internal server error: ɵgetOrCreateAngularServerApp is not a function
+      at /home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/node_modules/@angular/build/src/tools/vite/middlewares/ssr-middleware.js:30:38
+Error loading notes: ReferenceError: ErrorEvent is not defined
+    at RouterLink (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/src/app/interceptors/error.interceptor.ts:13:34)
+    at eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:2481:49)
+    at OperatorSubscriber2.OperatorSubscriber2._this._error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:1513:13)
+    at OperatorSubscriber2.Subscriber2.error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:517:16)
+    at eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:6802:22)
+    at OperatorSubscriber2.OperatorSubscriber2._this._error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:1513:13)
+    at OperatorSubscriber2.Subscriber2.error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:517:16)
+    at _FetchBackend.eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-XQLUVCEK.js:1331:20)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-YHCV7DAQ.js:72:24)
 ❯ Changes detected. Rebuilding...
 ✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  39.87 kB | 
+Application bundle generation failed. [0.997 seconds]
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note[]>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note[]': length, pop, push, concat, and 29 more. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:14:4:
+      14 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
 
 
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-XTQKXBEZ.mjs  | -           |  40.29 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note': id, title, content, created_at, and 2 more. [plugin angular-compiler]
 
-Application bundle generation complete. [0.310 seconds]
+    src/app/services/notes.service.ts:29:4:
+      29 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
 
-Page reload sent to client(s).
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note': id, title, content, created_at, and 2 more. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:43:4:
+      43 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
+
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note': id, title, content, created_at, and 2 more. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:61:4:
+      61 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
+
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<void>>' is not assignable to type 'Observable<void>'.
+  Type 'Promise<void>' is not assignable to type 'void'. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:79:4:
+      79 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
+
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note[]>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note[]': length, pop, push, concat, and 29 more. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:93:4:
+      93 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
+
+
 ❯ Changes detected. Rebuilding...
 ✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  41.79 kB | 
+Application bundle generation failed. [0.270 seconds]
+
+✘ [ERROR] TS2322: Type 'number' is not assignable to type 'string'. [plugin angular-compiler]
+
+    src/app/components/note-editor/note-editor.component.ts:19:4:
+      19 │     user_id: 1 // TODO: Replace with actual user ID from auth
+         ╵     ~~~~~~~
+
+  The expected type comes from property 'user_id' which is declared here on type 'Partial<Note>'
+
+    src/app/models/note.ts:21:4:
+      21 │     user_id: string;
+         ╵     ~~~~~~~
 
 
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-T5HPYGP6.mjs  | -           |  42.20 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note[]>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note[]': length, pop, push, concat, and 29 more. [plugin angular-compiler]
 
-Application bundle generation complete. [0.378 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  43.71 kB | 
+    src/app/services/notes.service.ts:14:4:
+      14 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
 
 
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-V7EEDM5E.mjs  | -           |  44.12 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note': id, title, content, created_at, and 2 more. [plugin angular-compiler]
 
-Application bundle generation complete. [0.271 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  46.10 kB | 
+    src/app/services/notes.service.ts:29:4:
+      29 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
 
 
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-K3VWUENV.mjs  | -           |  46.52 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note': id, title, content, created_at, and 2 more. [plugin angular-compiler]
 
-Application bundle generation complete. [0.317 seconds]
+    src/app/services/notes.service.ts:43:4:
+      43 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
 
-Page reload sent to client(s).
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note': id, title, content, created_at, and 2 more. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:61:4:
+      61 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
+
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<void>>' is not assignable to type 'Observable<void>'.
+  Type 'Promise<void>' is not assignable to type 'void'. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:79:4:
+      79 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
+
+
+✘ [ERROR] TS2322: Type 'Observable<Promise<any>>' is not assignable to type 'Observable<Note[]>'.
+  Type 'Promise<any>' is missing the following properties from type 'Note[]': length, pop, push, concat, and 29 more. [plugin angular-compiler]
+
+    src/app/services/notes.service.ts:93:4:
+      93 │     return this.supabaseService.getCurrentUser().pipe(
+         ╵     ~~~~~~
+
+

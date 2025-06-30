@@ -17,6 +17,6 @@ export interface Note {
     /** Timestamp when the note was last updated */
     updated_at: Date;
     
-    /** ID of the user who owns this note */
-    user_id: number;
+    /** ID of the user who owns this note (UUID from Supabase Auth) */
+    user_id: string;
 }

@@ -1,75 +1,105 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Note } from '../models/note';
-import { environment } from '../../environments/environment';
+import { SupabaseService } from './supabase.service';
 
-/**
- * Service for handling note-related operations with the backend API
- */
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
-  private apiUrl = environment.apiUrl + '/api/notes';
+  constructor(private supabaseService: SupabaseService) {}
 
-  constructor(
-    private http: HttpClient
-  ) {}
-
-  /**
-   * Retrieves all notes for the current user
-   * @returns Observable<Note[]> List of notes
-   */
   getNotes(): Observable<Note[]> {
-    return this.http.get<Note[]>(this.apiUrl);
+    return this.supabaseService.getCurrentUser().pipe(
+      map(response => response.data.user),
+      map(user => {
+        if (!user) throw new Error('User not authenticated');
+        return user.id;
+      }),
+      map(userId => this.supabaseService.getNotes(userId)),
+      catchError(error => {
+        console.error('Error fetching notes:', error);
+        return throwError(() => new Error('Failed to fetch notes'));
+      })
+    );
   }
 
-  /**
-   * Retrieves a specific note by ID
-   * @param id The ID of the note to retrieve
-   * @returns Observable<Note> The requested note
-   */
   getNote(id: number): Observable<Note> {
-    return this.http.get<Note>(`${this.apiUrl}/${id}`);
+    return this.supabaseService.getCurrentUser().pipe(
+      map(response => response.data.user),
+      map(user => {
+        if (!user) throw new Error('User not authenticated');
+        return this.supabaseService.getNote(id, user.id);
+      }),
+      catchError(error => {
+        console.error('Error fetching note:', error);
+        return throwError(() => new Error('Failed to fetch note'));
+      })
+    );
   }
 
-  /**
-   * Creates a new note
-   * @param note The note data to create
-   * @returns Observable<Note> The created note
-   */
   createNote(note: Omit<Note, 'id' | 'created_at' | 'updated_at'>): Observable<Note> {
-    return this.http.post<Note>(this.apiUrl, note);
+    return this.supabaseService.getCurrentUser().pipe(
+      map(response => response.data.user),
+      map(user => {
+        if (!user) throw new Error('User not authenticated');
+        return this.supabaseService.createNote({
+          title: note.title,
+          content: note.content,
+          user_id: user.id
+        });
+      }),
+      catchError(error => {
+        console.error('Error creating note:', error);
+        return throwError(() => new Error('Failed to create note'));
+      })
+    );
   }
 
-  /**
-   * Updates an existing note
-   * @param id The ID of the note to update
-   * @param note The updated note data
-   * @returns Observable<Note> The updated note
-   */
   updateNote(id: number, note: Partial<Note>): Observable<Note> {
-    return this.http.put<Note>(`${this.apiUrl}/${id}`, note);
+    return this.supabaseService.getCurrentUser().pipe(
+      map(response => response.data.user),
+      map(user => {
+        if (!user) throw new Error('User not authenticated');
+        return this.supabaseService.updateNote(id, {
+          title: note.title!,
+          content: note.content!,
+          user_id: user.id
+        });
+      }),
+      catchError(error => {
+        console.error('Error updating note:', error);
+        return throwError(() => new Error('Failed to update note'));
+      })
+    );
   }
 
-  /**
-   * Deletes a note
-   * @param id The ID of the note to delete
-   * @returns Observable<void>
-   */
   deleteNote(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.supabaseService.getCurrentUser().pipe(
+      map(response => response.data.user),
+      map(user => {
+        if (!user) throw new Error('User not authenticated');
+        return this.supabaseService.deleteNote(id, user.id);
+      }),
+      catchError(error => {
+        console.error('Error deleting note:', error);
+        return throwError(() => new Error('Failed to delete note'));
+      })
+    );
   }
 
-  /**
-   * Searches notes based on a query string
-   * @param query The search query
-   * @returns Observable<Note[]> List of matching notes
-   */
   searchNotes(query: string): Observable<Note[]> {
-    return this.http.get<Note[]>(`${this.apiUrl}/search`, {
-      params: { q: query }
-    });
+    return this.supabaseService.getCurrentUser().pipe(
+      map(response => response.data.user),
+      map(user => {
+        if (!user) throw new Error('User not authenticated');
+        return this.supabaseService.searchNotes(query, user.id);
+      }),
+      catchError(error => {
+        console.error('Error searching notes:', error);
+        return throwError(() => new Error('Failed to search notes'));
+      })
+    );
   }
 }
