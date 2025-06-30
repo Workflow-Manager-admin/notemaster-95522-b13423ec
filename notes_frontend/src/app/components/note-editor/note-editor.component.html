@@ -11,7 +11,7 @@
     {{ error }}
   </div>
 
-  <form *ngIf="!loading" (ngSubmit)="saveNote()" class="note-form">
+  <form *ngIf="!loading && isBrowser" (ngSubmit)="saveNote()" class="note-form">
     <div class="form-group">
       <label for="title">Title</label>
       <input
@@ -43,4 +43,8 @@
       </button>
     </div>
   </form>
+
+  <div *ngIf="!loading && !isBrowser" class="loading">
+    Loading editor...
+  </div>
 </div>

@@ -4,9 +4,29 @@ import { NoteEditorComponent } from './components/note-editor/note-editor.compon
 import { NoteSearchComponent } from './components/note-search/note-search.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/notes', pathMatch: 'full' },
-  { path: 'notes', component: NotesListComponent },
-  { path: 'notes/new', component: NoteEditorComponent },
-  { path: 'notes/:id', component: NoteEditorComponent },
-  { path: 'search', component: NoteSearchComponent }
+  { 
+    path: '', 
+    redirectTo: '/notes', 
+    pathMatch: 'full' 
+  },
+  { 
+    path: 'notes', 
+    component: NotesListComponent,
+    data: { prerender: false }  // Disable prerendering for authenticated route
+  },
+  { 
+    path: 'notes/new', 
+    component: NoteEditorComponent,
+    data: { prerender: false }  // Disable prerendering for authenticated route
+  },
+  { 
+    path: 'notes/:id', 
+    component: NoteEditorComponent,
+    data: { prerender: false }  // Disable prerendering for authenticated route
+  },
+  { 
+    path: 'search', 
+    component: NoteSearchComponent,
+    data: { prerender: false }  // Disable prerendering for authenticated route
+  }
 ];

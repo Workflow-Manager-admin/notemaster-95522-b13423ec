@@ -15,12 +15,13 @@ import { NotesService } from '../../services/notes.service';
 export class NoteEditorComponent implements OnInit {
   note: Partial<Note> = {
     title: '',
-    content: '',
-    user_id: 1 // TODO: Replace with actual user ID from auth
+    content: ''
   };
   isNew = true;
   loading = false;
   error: string | null = null;
+  private platformId = inject(PLATFORM_ID);
+  isBrowser = isPlatformBrowser(this.platformId);
 
   constructor(
     private notesService: NotesService,

@@ -27,6 +27,14 @@
         >
           Search Notes
         </a>
+        <button 
+          *ngIf="isBrowser"
+          class="backup-btn" 
+          (click)="backupNotes()" 
+          [disabled]="backupInProgress"
+        >
+          {{ backupInProgress ? 'Backing up...' : 'Backup Notes' }}
+        </button>
       </nav>
     </aside>
 

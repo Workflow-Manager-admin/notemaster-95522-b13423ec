@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Observable, from, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { Observable, throwError, from, of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
 import { Note } from '../models/note';
 import { SupabaseService } from './supabase.service';
 
@@ -8,17 +9,27 @@ import { SupabaseService } from './supabase.service';
   providedIn: 'root'
 })
 export class NotesService {
+  private platformId = inject(PLATFORM_ID);
+
   constructor(private supabaseService: SupabaseService) {}
+
+  private handleSSR<T>(fallback: T): Observable<T> {
+    return isPlatformBrowser(this.platformId) ? 
+      throwError(() => new Error('User not authenticated')) : 
+      of(fallback);
+  }
 
   getNotes(): Observable<Note[]> {
     return this.supabaseService.getCurrentUser().pipe(
       map(response => response.data.user),
-      map(user => {
-        if (!user) throw new Error('User not authenticated');
-        return user.id;
+      switchMap(user => {
+        if (!user) return this.handleSSR<Note[]>([]);
+        return from(this.supabaseService.getNotes(user.id)).pipe(
+          map(result => result as Note[])
+        );
       }),
-      map(userId => this.supabaseService.getNotes(userId)),
       catchError(error => {
+        if (!isPlatformBrowser(this.platformId)) return of([]);
         console.error('Error fetching notes:', error);
         return throwError(() => new Error('Failed to fetch notes'));
       })
@@ -28,9 +39,11 @@ export class NotesService {
   getNote(id: number): Observable<Note> {
     return this.supabaseService.getCurrentUser().pipe(
       map(response => response.data.user),
-      map(user => {
+      switchMap(user => {
         if (!user) throw new Error('User not authenticated');
-        return this.supabaseService.getNote(id, user.id);
+        return from(this.supabaseService.getNote(id, user.id)).pipe(
+          map(result => result as Note)
+        );
       }),
       catchError(error => {
         console.error('Error fetching note:', error);
@@ -42,13 +55,15 @@ export class NotesService {
   createNote(note: Omit<Note, 'id' | 'created_at' | 'updated_at'>): Observable<Note> {
     return this.supabaseService.getCurrentUser().pipe(
       map(response => response.data.user),
-      map(user => {
+      switchMap(user => {
         if (!user) throw new Error('User not authenticated');
-        return this.supabaseService.createNote({
+        return from(this.supabaseService.createNote({
           title: note.title,
           content: note.content,
           user_id: user.id
-        });
+        })).pipe(
+          map(result => result as Note)
+        );
       }),
       catchError(error => {
         console.error('Error creating note:', error);
@@ -60,13 +75,15 @@ export class NotesService {
   updateNote(id: number, note: Partial<Note>): Observable<Note> {
     return this.supabaseService.getCurrentUser().pipe(
       map(response => response.data.user),
-      map(user => {
+      switchMap(user => {
         if (!user) throw new Error('User not authenticated');
-        return this.supabaseService.updateNote(id, {
+        return from(this.supabaseService.updateNote(id, {
           title: note.title!,
           content: note.content!,
           user_id: user.id
-        });
+        })).pipe(
+          map(result => result as Note)
+        );
       }),
       catchError(error => {
         console.error('Error updating note:', error);
@@ -78,9 +95,9 @@ export class NotesService {
   deleteNote(id: number): Observable<void> {
     return this.supabaseService.getCurrentUser().pipe(
       map(response => response.data.user),
-      map(user => {
+      switchMap(user => {
         if (!user) throw new Error('User not authenticated');
-        return this.supabaseService.deleteNote(id, user.id);
+        return from(this.supabaseService.deleteNote(id, user.id));
       }),
       catchError(error => {
         console.error('Error deleting note:', error);
@@ -92,13 +109,30 @@ export class NotesService {
   searchNotes(query: string): Observable<Note[]> {
     return this.supabaseService.getCurrentUser().pipe(
       map(response => response.data.user),
-      map(user => {
+      switchMap(user => {
         if (!user) throw new Error('User not authenticated');
-        return this.supabaseService.searchNotes(query, user.id);
+        return from(this.supabaseService.searchNotes(query, user.id)).pipe(
+          map(result => result as Note[])
+        );
       }),
       catchError(error => {
         console.error('Error searching notes:', error);
         return throwError(() => new Error('Failed to search notes'));
+      })
+    );
+  }
+
+  // PUBLIC_INTERFACE
+  backupNotes(): Observable<void> {
+    return this.supabaseService.getCurrentUser().pipe(
+      map(response => response.data.user),
+      switchMap(user => {
+        if (!user) throw new Error('User not authenticated');
+        return from(this.supabaseService.backupNotes(user.id));
+      }),
+      catchError(error => {
+        console.error('Error backing up notes:', error);
+        return throwError(() => new Error('Failed to backup notes'));
       })
     );
   }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Note } from '../../models/note';
@@ -17,6 +17,8 @@ export class NoteSearchComponent {
   searchResults: Note[] = [];
   loading = false;
   error: string | null = null;
+  private platformId = inject(PLATFORM_ID);
+  isBrowser = isPlatformBrowser(this.platformId);
 
   constructor(private notesService: NotesService) {}
 

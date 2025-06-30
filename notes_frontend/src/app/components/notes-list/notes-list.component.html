@@ -12,7 +12,7 @@
     {{ error }}
   </div>
 
-  <div *ngIf="!loading && !error" class="notes-grid">
+  <div *ngIf="!loading && !error && isBrowser" class="notes-grid">
     @for (note of notes; track note.id) {
       <div class="note-card">
         <div class="note-content">

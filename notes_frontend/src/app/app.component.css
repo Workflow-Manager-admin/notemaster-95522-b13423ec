@@ -67,6 +67,30 @@
   color: var(--text-on-primary);
 }
 
+.main-nav .backup-btn {
+  width: 100%;
+  margin-top: calc(var(--spacing-unit) * 2);
+  padding: calc(var(--spacing-unit) * 1.5);
+  background-color: var(--accent-color);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.main-nav .backup-btn:hover:not(:disabled) {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.main-nav .backup-btn:disabled {
+  background-color: var(--secondary-light);
+  cursor: not-allowed;
+  transform: none;
+}
+
 .main-content {
   flex: 1;
   padding: calc(var(--spacing-unit) * 3);

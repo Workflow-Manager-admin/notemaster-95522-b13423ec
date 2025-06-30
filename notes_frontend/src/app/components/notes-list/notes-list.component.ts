@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Note } from '../../models/note';
 import { NotesService } from '../../services/notes.service';
@@ -16,6 +16,8 @@ export class NotesListComponent implements OnInit {
   loading = false;
   error: string | null = null;
   deleteConfirmation: number | null = null;
+  private platformId = inject(PLATFORM_ID);
+  isBrowser = isPlatformBrowser(this.platformId);
 
   constructor(private notesService: NotesService) {}
 

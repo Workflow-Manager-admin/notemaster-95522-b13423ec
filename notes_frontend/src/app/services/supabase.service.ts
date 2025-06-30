@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
 import { Observable, from } from 'rxjs';
@@ -9,7 +11,7 @@ import { Observable, from } from 'rxjs';
 export class SupabaseService {
   private supabase: SupabaseClient;
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.supabase = createClient(
       environment.supabase.url,
       environment.supabase.key
@@ -101,5 +103,35 @@ export class SupabaseService {
 
     if (error) throw error;
     return data;
+  }
+
+  private platformId = inject(PLATFORM_ID);
+
+  async backupNotes(userId: string): Promise<void> {
+    const { data, error } = await this.supabase
+      .from('notes')
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+
+    if (isPlatformBrowser(this.platformId)) {
+      const backupData = JSON.stringify(data, null, 2);
+      const blob = new Blob([backupData], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      
+      // Create and trigger download using the injected document
+      const link = this.document.createElement('a');
+      link.style.display = 'none';
+      link.href = url;
+      link.download = `notes_backup_${new Date().toISOString().split('T')[0]}.json`;
+      
+      this.document.body.appendChild(link);
+      link.click();
+      this.document.body.removeChild(link);
+      
+      URL.revokeObjectURL(url);
+    }
   }
 }
