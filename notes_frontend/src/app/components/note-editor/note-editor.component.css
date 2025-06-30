@@ -1,97 +1,146 @@
 .note-editor-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: calc(var(--spacing-unit) * 2);
 }
 
 .editor-header {
-  margin-bottom: 20px;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.editor-header h2 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
 }
 
 .note-form {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--surface-color);
+  padding: calc(var(--spacing-unit) * 3);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: calc(var(--spacing-unit) * 3);
 }
 
 label {
   display: block;
-  margin-bottom: 8px;
-  color: #424242;
+  margin-bottom: calc(var(--spacing-unit));
+  color: var(--secondary-color);
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 input[type="text"],
 textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: calc(var(--spacing-unit) * 1.5);
+  border: 2px solid rgba(0,0,0,0.1);
+  border-radius: var(--border-radius);
   font-size: 1rem;
   font-family: inherit;
+  transition: all var(--transition-speed);
+  background-color: var(--background-color);
+}
+
+input[type="text"]:hover,
+textarea:hover {
+  border-color: var(--primary-light);
 }
 
 input[type="text"]:focus,
 textarea:focus {
   outline: none;
-  border-color: #1976d2;
-  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  background-color: var(--surface-color);
+}
+
+textarea {
+  min-height: 200px;
+  resize: vertical;
+  line-height: 1.6;
 }
 
 .form-actions {
   display: flex;
-  gap: 10px;
+  gap: calc(var(--spacing-unit) * 2);
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: calc(var(--spacing-unit) * 4);
+  padding-top: calc(var(--spacing-unit) * 3);
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .save-btn, .cancel-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+  border-radius: var(--border-radius);
   font-size: 1rem;
-  transition: background-color 0.2s;
+  font-weight: 500;
+  transition: all var(--transition-speed);
 }
 
 .save-btn {
-  background-color: #1976d2;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
 }
 
-.save-btn:hover {
-  background-color: #1565c0;
+.save-btn:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .save-btn:disabled {
-  background-color: #ccc;
+  background-color: var(--secondary-light);
   cursor: not-allowed;
+  transform: none;
 }
 
 .cancel-btn {
-  background-color: #f5f5f5;
-  color: #424242;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-light);
 }
 
 .cancel-btn:hover {
-  background-color: #e0e0e0;
+  background-color: var(--secondary-light);
+  color: var(--text-on-secondary);
+  border-color: var(--secondary-light);
+  transform: translateY(-2px);
 }
 
 .loading {
   text-align: center;
-  padding: 20px;
-  color: #666;
+  padding: calc(var(--spacing-unit) * 4);
+  color: var(--secondary-light);
 }
 
 .error-message {
-  color: #f44336;
+  color: var(--error-color);
   background-color: #ffebee;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 20px;
+  padding: calc(var(--spacing-unit) * 2);
+  border-radius: var(--border-radius);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+@media (max-width: 480px) {
+  .note-form {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: calc(var(--spacing-unit));
+  }
+
+  .save-btn, .cancel-btn {
+    width: 100%;
+    text-align: center;
+  }
 }

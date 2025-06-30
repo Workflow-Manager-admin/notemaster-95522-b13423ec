@@ -9,356 +9,6 @@ The "disableHostCheck" option will not be used because it is not supported by th
 Browser bundles     
 Initial chunk files  | Names            |  Raw size
 polyfills.js         | polyfills        |  90.20 kB | 
-main.js              | main             |  22.71 kB | 
-styles.css           | styles           |  95 bytes | 
-
-                     | Initial total    | 113.00 kB
-
-
-Server bundles      
-Initial chunk files  | Names            |  Raw size
-polyfills.server.mjs | polyfills.server | 572.91 kB | 
-chunk-DDRR5NRV.mjs   | -                |  23.15 kB | 
-server.mjs           | server           |   1.39 kB | 
-main.server.mjs      | main.server      | 800 bytes | 
-
-Application bundle generation complete. [3.091 seconds]
-
-Watch mode enabled. Watching for file changes...
-NOTE: Raw file sizes do not reflect development server per-request transformations.
-5:21:40 AM [vite] (client) Re-optimizing dependencies because vite config has changed
-  ➜  Local:   http://localhost:3000/
-  ➜  Network: http://172.17.0.2:3000/
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [1.142 seconds]
-
-✘ [ERROR] NG8002: Can't bind to 'routerLink' since it isn't a known property of 'button'. [plugin angular-compiler]
-
-    src/app/components/note-editor/note-editor.component.html:40:28:
-      40 │ ...tton type="button" [routerLink]="['/notes']" class="cancel-btn"...
-         ╵                       ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  Error occurs in the template of component NoteEditorComponent.
-
-    src/app/components/note-editor/note-editor.component.ts:12:15:
-      12 │   templateUrl: './note-editor.component.html',
-         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.801 seconds]
-
-▲ [WARNING] TS-998113: RouterLink is not used within the template of AppComponent [plugin angular-compiler]
-
-    src/app/app.component.ts:8:40:
-      8 │   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
-        ╵                                         ~~~~~~~~~~
-
-
-▲ [WARNING] TS-998113: RouterLinkActive is not used within the template of AppComponent [plugin angular-compiler]
-
-    src/app/app.component.ts:8:52:
-      8 │   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
-        ╵                                                     ~~~~~~~~~~~~~~~~
-
-
-✘ [ERROR] NG8002: Can't bind to 'routerLink' since it isn't a known property of 'button'. [plugin angular-compiler]
-
-    src/app/components/note-editor/note-editor.component.html:40:28:
-      40 │ ...tton type="button" [routerLink]="['/notes']" class="cancel-btn"...
-         ╵                       ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  Error occurs in the template of component NoteEditorComponent.
-
-    src/app/components/note-editor/note-editor.component.ts:12:15:
-      12 │   templateUrl: './note-editor.component.html',
-         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.467 seconds]
-
-✘ [ERROR] NG8002: Can't bind to 'routerLink' since it isn't a known property of 'button'. [plugin angular-compiler]
-
-    src/app/components/note-editor/note-editor.component.html:40:28:
-      40 │ ...tton type="button" [routerLink]="['/notes']" class="cancel-btn"...
-         ╵                       ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  Error occurs in the template of component NoteEditorComponent.
-
-    src/app/components/note-editor/note-editor.component.ts:12:15:
-      12 │   templateUrl: './note-editor.component.html',
-         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.277 seconds]
-
-✘ [ERROR] NG8002: Can't bind to 'routerLink' since it isn't a known property of 'button'. [plugin angular-compiler]
-
-    src/app/components/note-editor/note-editor.component.html:40:28:
-      40 │ ...tton type="button" [routerLink]="['/notes']" class="cancel-btn"...
-         ╵                       ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  Error occurs in the template of component NoteEditorComponent.
-
-    src/app/components/note-editor/note-editor.component.ts:12:15:
-      12 │   templateUrl: './note-editor.component.html',
-         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.015 seconds]
-
-✘ [ERROR] NG8002: Can't bind to 'routerLink' since it isn't a known property of 'button'. [plugin angular-compiler]
-
-    src/app/components/note-editor/note-editor.component.html:40:28:
-      40 │ ...tton type="button" [routerLink]="['/notes']" class="cancel-btn"...
-         ╵                       ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  Error occurs in the template of component NoteEditorComponent.
-
-    src/app/components/note-editor/note-editor.component.ts:12:15:
-      12 │   templateUrl: './note-editor.component.html',
-         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.231 seconds]
-
-✘ [ERROR] NG8002: Can't bind to 'routerLink' since it isn't a known property of 'button'. [plugin angular-compiler]
-
-    src/app/components/note-editor/note-editor.component.html:40:28:
-      40 │ ...tton type="button" [routerLink]="['/notes']" class="cancel-btn"...
-         ╵                       ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  Error occurs in the template of component NoteEditorComponent.
-
-    src/app/components/note-editor/note-editor.component.ts:12:15:
-      12 │   templateUrl: './note-editor.component.html',
-         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles     
-Initial chunk files  | Names            |  Raw size
-polyfills.js         | polyfills        |  90.20 kB | 
-main.js              | main             |  34.97 kB | 
-styles.css           | styles           |   1.02 kB | 
-
-                     | Initial total    | 126.19 kB
-
-
-Server bundles      
-Initial chunk files  | Names            |  Raw size
-polyfills.server.mjs | polyfills.server | 572.91 kB | 
-chunk-RMXAQAMO.mjs   | -                |  35.39 kB | 
-server.mjs           | server           |   1.39 kB | 
-main.server.mjs      | main.server      | 800 bytes | 
-
-Application bundle generation complete. [0.276 seconds]
-
-5:41:39 AM [vite] (ssr) ✨ new dependencies optimized: @angular/forms
-5:41:39 AM [vite] (ssr) ✨ optimized dependencies changed. reloading
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  34.99 kB | 
-
-
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-ZNWF5ZIX.mjs  | -           |  35.41 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
-
-Application bundle generation complete. [0.335 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-
-No output file changes.
-
-Application bundle generation complete. [0.190 seconds]
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-
-No output file changes.
-
-Application bundle generation complete. [0.192 seconds]
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-
-No output file changes.
-
-Application bundle generation complete. [0.286 seconds]
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  34.98 kB | 
-
-
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-DR6TIPMF.mjs  | -           |  35.40 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
-
-Application bundle generation complete. [0.127 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-
-No output file changes.
-
-Application bundle generation complete. [0.245 seconds]
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  35.08 kB | 
-
-
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-DJSLXKEM.mjs  | -           |  35.49 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
-
-Application bundle generation complete. [0.391 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  36.91 kB | 
-
-
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-5Q2MULMA.mjs  | -           |  37.33 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
-
-Application bundle generation complete. [0.227 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  37.81 kB | 
-
-
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-3VGTQB3F.mjs  | -           |  38.22 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
-
-Application bundle generation complete. [0.332 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles    
-Initial chunk files | Names       |  Raw size
-main.js             | main        |  37.81 kB | 
-
-
-Server bundles     
-Initial chunk files | Names       |  Raw size
-chunk-EEES74XU.mjs  | -           |  38.23 kB | 
-server.mjs          | server      |   1.39 kB | 
-main.server.mjs     | main.server | 800 bytes | 
-
-Application bundle generation complete. [0.088 seconds]
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.225 seconds]
-
-✘ [ERROR] TS2322: Type '(request: HttpRequest<unknown>, next: HttpHandler) => Observable<HttpEvent<unknown>>' is not assignable to type 'HttpInterceptorFn'.
-  Types of parameters 'next' and 'next' are incompatible.
-    Type 'HttpHandlerFn' is not assignable to type 'HttpHandler'. [plugin angular-compiler]
-
-    src/app/app.config.ts:16:24:
-      16 │ ...rceptors([new ErrorInterceptor().intercept.bind(new ErrorInterc...
-         ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.351 seconds]
-
-✘ [ERROR] TS2724: '"./interceptors/error.interceptor"' has no exported member named 'ErrorInterceptor'. Did you mean 'errorInterceptor'? [plugin angular-compiler]
-
-    src/app/app.config.ts:7:9:
-      7 │ import { ErrorInterceptor } from './interceptors/error.interceptor';
-        ╵          ~~~~~~~~~~~~~~~~
-
-  'errorInterceptor' is declared here.
-
-    src/app/interceptors/error.interceptor.ts:8:13:
-      8 │ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
-        ╵              ~~~~~~~~~~~~~~~~
-
-
-✘ [ERROR] No matching export in "src/app/interceptors/error.interceptor.ts" for import "ErrorInterceptor"
-
-    src/app/app.config.ts:6:9:
-      6 │ import { ErrorInterceptor } from './interceptors/error.interceptor';
-        │          ~~~~~~~~~~~~~~~~
-        ╵          errorInterceptor
-
-  Did you mean to import "errorInterceptor" instead?
-
-    src/app/interceptors/error.interceptor.ts:3:13:
-      3 │ export const errorInterceptor = (req, next) => {
-        ╵              ~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.188 seconds]
-
-✘ [ERROR] TS2552: Cannot find name 'ErrorInterceptor'. Did you mean 'errorInterceptor'? [plugin angular-compiler]
-
-    src/app/app.config.ts:16:28:
-      16 │ ...  withInterceptors([new ErrorInterceptor().intercept.bind(new E...
-         ╵                            ~~~~~~~~~~~~~~~~
-
-
-✘ [ERROR] TS2552: Cannot find name 'ErrorInterceptor'. Did you mean 'errorInterceptor'? [plugin angular-compiler]
-
-    src/app/app.config.ts:16:66:
-      16 │ ...s([new ErrorInterceptor().intercept.bind(new ErrorInterceptor())])
-         ╵                                                 ~~~~~~~~~~~~~~~~
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Browser bundles     
-Initial chunk files  | Names            |  Raw size
-polyfills.js         | polyfills        |  90.20 kB | 
 main.js              | main             |  38.70 kB | 
 styles.css           | styles           |   1.02 kB | 
 
@@ -372,8 +22,119 @@ chunk-KFVGSGEB.mjs   | -                |  39.12 kB |
 server.mjs           | server           |   1.39 kB | 
 main.server.mjs      | main.server      | 800 bytes | 
 
-Application bundle generation complete. [0.117 seconds]
+Application bundle generation complete. [3.389 seconds]
 
-5:43:29 AM [vite] (ssr) ✨ new dependencies optimized: rxjs/operators, rxjs
-5:43:29 AM [vite] (ssr) ✨ optimized dependencies changed. reloading
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://172.17.0.2:3000/
+Error loading notes: ReferenceError: ErrorEvent is not defined
+    at RouterLink (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/src/app/interceptors/error.interceptor.ts:13:34)
+    at eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:2481:49)
+    at OperatorSubscriber2.OperatorSubscriber2._this._error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:1513:13)
+    at OperatorSubscriber2.Subscriber2.error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:517:16)
+    at eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:6802:22)
+    at OperatorSubscriber2.OperatorSubscriber2._this._error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:1513:13)
+    at OperatorSubscriber2.Subscriber2.error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:517:16)
+    at _FetchBackend.eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-XQLUVCEK.js:1331:20)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-YHCV7DAQ.js:72:24)
+Error loading notes: ReferenceError: ErrorEvent is not defined
+    at RouterLink (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/src/app/interceptors/error.interceptor.ts:13:34)
+    at eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:2481:49)
+    at OperatorSubscriber2.OperatorSubscriber2._this._error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:1513:13)
+    at OperatorSubscriber2.Subscriber2.error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:517:16)
+    at eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:6802:22)
+    at OperatorSubscriber2.OperatorSubscriber2._this._error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:1513:13)
+    at OperatorSubscriber2.Subscriber2.error (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-QHIWDXK3.js:517:16)
+    at _FetchBackend.eval (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-XQLUVCEK.js:1331:20)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/kavia/workspace/code-generation/notemaster-95522-b13423ec/notes_frontend/.angular/cache/19.2.1/angular/vite/deps_ssr/chunk-YHCV7DAQ.js:72:24)
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names  | Raw size
+styles.css          | styles |  3.55 kB | 
+
+Application bundle generation complete. [0.035 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  39.78 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-DNKR2VFX.mjs  | -           |  40.20 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.607 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  39.87 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-XTQKXBEZ.mjs  | -           |  40.29 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.310 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  41.79 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-T5HPYGP6.mjs  | -           |  42.20 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.378 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  43.71 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-V7EEDM5E.mjs  | -           |  44.12 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.271 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  46.10 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-K3VWUENV.mjs  | -           |  46.52 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.317 seconds]
+
 Page reload sent to client(s).

@@ -2,25 +2,36 @@
   <header class="app-header">
     <div class="header-content">
       <h1>{{ title }}</h1>
+    </div>
+  </header>
+
+  <div class="layout-container">
+    <aside class="sidebar">
       <nav class="main-nav">
         <a 
           routerLink="/notes" 
           routerLinkActive="active" 
           [routerLinkActiveOptions]="{exact: true}"
-        >All Notes</a>
+        >
+          All Notes
+        </a>
         <a 
           routerLink="/notes/new" 
           routerLinkActive="active"
-        >New Note</a>
+        >
+          New Note
+        </a>
         <a 
           routerLink="/search" 
           routerLinkActive="active"
-        >Search</a>
+        >
+          Search Notes
+        </a>
       </nav>
-    </div>
-  </header>
+    </aside>
 
-  <main class="main-content">
-    <router-outlet></router-outlet>
-  </main>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
